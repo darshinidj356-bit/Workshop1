@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ResumeIQ - Interactive AI-style Resume Analyzer">
+  <title>ResumeIQ — AI Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb1"></div><div class="bg-orb orb2"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#"><span class="logo">✦</span><span>Resume<span>IQ</span></span></a>
+    <nav>
+      <a href="#analyzer">Analyzer</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+    </nav>
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☾</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="badge">⚡ Smart • Fast • Student Friendly</div>
+        <h1>Turn your resume into a <span>career advantage.</span></h1>
+        <p>Upload or paste your resume and get an instant ATS-style score, skill insights, job-role matching and practical improvement tips.</p>
+        <a class="primary-btn" href="#analyzer">Analyze My Resume <span>→</span></a>
+      </div>
+      <div class="hero-card">
+        <div class="mini-top"><span>ResumeIQ Analysis</span><span class="live">● LIVE</span></div>
+        <div class="score-ring small-ring"><span>87</span><small>/100</small></div>
+        <div class="mini-bars">
+          <div><label>Skills <b>92%</b></label><i><em style="width:92%"></em></i></div>
+          <div><label>ATS Keywords <b>84%</b></label><i><em style="width:84%"></em></i></div>
+          <div><label>Impact <b>78%</b></label><i><em style="width:78%"></em></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analyzer" class="panel analyzer">
+      <div class="section-heading">
+        <div><div class="eyebrow">RESUME ANALYZER</div><h2>Build a stronger resume</h2></div>
+        <span class="status" id="status">Ready to analyze</span>
+      </div>
+
+      <div class="input-grid">
+        <div class="upload-card" id="dropZone">
+          <div class="upload-icon">↑</div>
+          <h3>Drop your resume here</h3>
+          <p>TXT files work offline. PDF/DOCX can be selected for file-name preview; paste text for full analysis.</p>
+          <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx">
+          <button class="outline-btn" id="chooseBtn">Choose Resume</button>
+          <div id="fileName" class="file-name"></div>
+        </div>
+        <div class="paste-card">
+          <div class="field-head"><label for="resumeText">Or paste your resume text</label><span id="charCount">0 chars</span></div>
+          <textarea id="resumeText" placeholder="Paste your resume content here...
+
+Example:
+Python | SQL | Machine Learning
+Built an AI project that...
+Education...
+Projects...
+Skills..."></textarea>
+          <div class="sample-row">
+            <button class="ghost-btn" id="sampleBtn">Use Sample Resume</button>
+            <button class="primary-btn compact" id="analyzeBtn">Analyze Resume ✨</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="results-head">
+        <div><div class="eyebrow">YOUR RESULTS</div><h2>Resume health report</h2><p id="resultSummary"></p></div>
+        <button class="outline-btn" id="downloadBtn">Download Report</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="panel score-panel">
+          <h3>ATS Compatibility</h3>
+          <div class="score-ring" id="scoreRing"><span id="scoreValue">0</span><small>/100</small></div>
+          <div class="score-label" id="scoreLabel">Analyzing…</div>
+          <p>Estimated score based on structure, skills, keywords, impact and completeness.</p>
+        </div>
+
+        <div class="panel">
+          <div class="card-title"><h3>Category scores</h3><span>●</span></div>
+          <div id="categoryScores" class="category-list"></div>
+        </div>
+
+        <div class="panel skills-panel">
+          <div class="card-title"><h3>Skills detected</h3><span id="skillCount">0</span></div>
+          <div id="skills" class="chips"></div>
+        </div>
+
+        <div class="panel">
+          <div class="card-title"><h3>Job-role match</h3><span>AI</span></div>
+          <div id="roles" class="roles"></div>
+        </div>
+      </div>
+
+      <div class="lower-grid">
+        <div class="panel">
+          <div class="card-title"><h3>What you're doing well</h3><span class="good">✓</span></div>
+          <ul id="strengths" class="insight-list"></ul>
+        </div>
+        <div class="panel">
+          <div class="card-title"><h3>Improve next</h3><span class="warn">!</span></div>
+          <ul id="suggestions" class="insight-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="section-heading centered"><div><div class="eyebrow">WHY RESUMEIQ</div><h2>Everything you need in one scan</h2></div></div>
+      <div class="feature-grid">
+        <article><div class="feature-icon">◎</div><h3>ATS Score</h3><p>Get a simple compatibility score based on resume structure and useful keywords.</p></article>
+        <article><div class="feature-icon">⌁</div><h3>Skill Extraction</h3><p>Automatically identify technical and professional skills from your resume text.</p></article>
+        <article><div class="feature-icon">↗</div><h3>Role Matching</h3><p>See which entry-level technology roles align with the skills you listed.</p></article>
+        <article><div class="feature-icon">✦</div><h3>Actionable Tips</h3><p>Receive clear suggestions you can apply immediately to strengthen your resume.</p></article>
+      </div>
+    </section>
+
+    <section id="about" class="cta">
+      <div><div class="eyebrow">PRIVACY FIRST</div><h2>Your resume stays in your browser.</h2><p>This demo performs analysis locally with JavaScript. No server or API key is required.</p></div>
+      <a class="outline-btn light" href="#analyzer">Try it now ↑</a>
+    </section>
+  </main>
+
+  <footer>© 2026 ResumeIQ • AI-style resume analysis for students & job seekers</footer>
+  <script src="script.js"></script>
+</body>
+</html>
